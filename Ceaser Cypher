@@ -1,0 +1,87 @@
+import math
+
+is_running = True
+
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+while is_running:
+    logo = """           
+     ,adPPYba, ,adPPYYba,  ,adPPYba, ,adPPYba, ,adPPYYba, 8b,dPPYba,  
+    a8"     "" ""     `Y8 a8P_____88 I8[    "" ""     `Y8 88P'   "Y8  
+    8b         ,adPPPPP88 8PP"""""""  `"Y8ba,  ,adPPPPP88 88          
+    "8a,   ,aa 88,    ,88 "8b,   ,aa aa    ]8I 88,    ,88 88          
+     `"Ybbd8"' `"8bbdP"Y8  `"Ybbd8"' `"YbbdP"' `"8bbdP"Y8 88   
+                88             88                                 
+               ""             88                                 
+                              88                                 
+     ,adPPYba, 88 8b,dPPYba,  88,dPPYba,   ,adPPYba, 8b,dPPYba,  
+    a8"     "" 88 88P'    "8a 88P'    "8a a8P_____88 88P'   "Y8  
+    8b         88 88       d8 88       88 8PP""""""" 88          
+    "8a,   ,aa 88 88b,   ,a8" 88       88 "8b,   ,aa 88          
+     `"Ybbd8"' 88 88`YbbdP"'  88       88  `"Ybbd8"' 88          
+                  88                                             
+                  88           
+    """
+
+    print(f"{logo} \nType 'encode' to encrypt, type 'decode' to decrypt:")
+    Choice = input().lower()
+
+    print("Type your message:")
+    Message = input().lower()
+
+    print("Type the shift number:")
+    Shift = int(input())
+
+    if Shift > 26:
+        Shift = math.ceil(Shift / 26)
+
+
+    def ceaser(a, b, c):
+        if c == "encode":
+            NewWord = []
+            for char in a:
+                if char in alphabet:
+                    charIndex = alphabet.index(char)
+                    newcharIndex = charIndex + b
+                    for i in alphabet:
+                        if alphabet.index(i) == newcharIndex:
+                            newchar = i
+                            NewWord.append(newchar)
+                else:
+                    print("else")
+                    print("Trying to append char to word..?")
+                    NewWord.append(char)
+
+            EntireNewWord = "".join(NewWord)
+            print(f"Here's the encoded result: {EntireNewWord}!")
+
+        elif c == "decode":
+            NewWord = []
+            for char in a:
+                if char in alphabet:
+                    charIndex = alphabet.index(char)
+                    newcharIndex = charIndex - b
+                    for i in alphabet:
+                        if alphabet.index(i) == newcharIndex:
+                            newchar = i
+                            NewWord.append(newchar)
+                else:
+                    print("else")
+                    print("Trying to append char to word..?")
+                    NewWord.append(char)
+
+            EntireNewWord = "".join(NewWord)
+            print(f"Here's the encoded result: {EntireNewWord}!")
+
+    ceaser(Message, Shift, Choice)
+
+    print("Type 'yes' if you want to go again. Otherwise type 'no'.")
+    BreakOrNot = input().lower()
+
+    if BreakOrNot == "no":
+        is_running = False
+    else:
+        for i in range(1, 10):
+            print("\n")
+
+
