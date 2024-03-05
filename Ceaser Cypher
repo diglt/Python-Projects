@@ -48,8 +48,6 @@ while is_running:
                             newchar = i
                             NewWord.append(newchar)
                 else:
-                    print("else")
-                    print("Trying to append char to word..?")
                     NewWord.append(char)
 
             EntireNewWord = "".join(NewWord)
@@ -66,8 +64,6 @@ while is_running:
                             newchar = i
                             NewWord.append(newchar)
                 else:
-                    print("else")
-                    print("Trying to append char to word..?")
                     NewWord.append(char)
 
             EntireNewWord = "".join(NewWord)
