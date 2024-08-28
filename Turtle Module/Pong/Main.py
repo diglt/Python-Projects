@@ -31,7 +31,7 @@ def MoveDown():
 
 
 def MoveBall():
-    global player_score, computer_score  # Declare these variables as global
+    global player_score, computer_score  # python and the scope of a function being local or global is odd man
     PongBall.ball.setx(PongBall.ball.xcor() + PongBall.dx)
     PongBall.ball.sety(PongBall.ball.ycor() + PongBall.dy)
 
