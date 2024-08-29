@@ -10,8 +10,18 @@ def ReturnRandomInt():
 
 def GeneratePassword(uppercase, numbers, character):
     global strpassword
-    
-    for i in range(5):
+
+    if not uppercase and not numbers and not character:
+        for i in range(10):
+            if uppercase:
+                letter = random.choice(alphabet).upper()
+                password.append(letter)
+            else:
+                letter = random.choice(alphabet)
+                password.append(letter)
+
+
+    for i in range(7):
         if uppercase:
             letter = random.choice(alphabet).upper()
             password.append(letter)
@@ -19,7 +29,7 @@ def GeneratePassword(uppercase, numbers, character):
             letter = random.choice(alphabet)
             password.append(letter)
 
-    for a in range(5):
+    for a in range(3):
         if numbers:
             number = ReturnRandomInt()
             password.append(str(number))
