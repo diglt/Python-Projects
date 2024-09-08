@@ -18,17 +18,17 @@ import base64
 import random
 
 
-Methods = ["Caesar Cipher", "Base 64"]
+Methods = ["Caesar Cipher (Only Takes Characters)", "Base 64 (Takes both Characters, Numbers and Special Characters)"]
 Choices = ["Encryption", "Decryption"]
 Characters = []
 Numbers = []
 Special_Characters = []
+
 Encoded_Table = []
 Decoded_Table = []
 
 Characters.extend("abcdefghijklmnopqrstuvwxyz")
-Numbers.extend("1234567890")
-Special_Characters.extend("¬!£$%^*()_+-`[]{}'#/.,\\")
+Numbers.extend("0123456789")
 
 Continue_Running = True
 My_Method = None
@@ -80,22 +80,34 @@ def ReverseLetters(letter, shift_number, choice):
         Decoded_Table.append(new_letter)
 
 
-def AddToStringNumbers(letter, shift):
-    new_index = Numbers.index(letter) + shift
+# Some functions to include numbers, possibly add to ceaser in future updates.
 
-    if new_index > len(Numbers):
-        new_index = new_index - len(Numbers)
-        new_number = Numbers[new_index]
-
-        Encoded_Table.append(new_number)
-    if new_index < 0:
-        New_Set_Value = random.randint(1,5)
-
-        new_number = Numbers[New_Set_Value]
-        Encoded_Table.append(new_number)
-    else:
-        Encoded_Table.append(Numbers[new_index])
+#def AddToStringNumbers(letter, shift):
+#    new_index = Numbers.index(letter) + shift
+#
+#    while new_index > len(Numbers):
+#        new_index = new_index - len(Numbers)
+#
+#    if new_index < len(Numbers):
+#        Encoded_Table.append(Numbers[new_index])
     
+
+
+#def RemoveNumbersFromString(number, shift):
+#    new_index = Numbers.index(number) - shift
+#    
+#    if new_index < 0:
+#        new_index = (new_index * -1)
+#
+#        if new_index > len(Numbers):
+#            new_index = (new_index % 10)
+#
+#        Decoded_Table.append(Numbers[new_index])
+#    else:
+#        Decoded_Table.append(Numbers[new_index])
+
+
+
 
 
 def EncryptCeaserCypher(String):
@@ -145,6 +157,8 @@ def DecryptCeaserCypher(String):
 
 
 
+
+
 while Continue_Running:
     index = 0
 
@@ -158,21 +172,21 @@ while Continue_Running:
         Encode_Step_One = String.encode('utf-8')
 
         if Choice == "Encryption":
-            if Method == "Caesar Cipher":
+            if Method[0] == "C":
                 EncryptCeaserCypher(String)      
 
 
-            if Method == "Base 64":
+            if Method[0] == "B":
                 encoded_byte = Encode_Step_One
                 encoded_bytes = base64.b64encode(encoded_byte)
                 encoded_string = encoded_bytes.decode('utf-8')
 
                 print(f"\nHere's your encoded result: {encoded_string}")
         else:
-            if Method == "Caesar Cipher":
+            if Method[0] == "C":
                 DecryptCeaserCypher(String)
 
-            if Method == "Base 64":
+            if Method[0] == "B":
                 encoded_byte = Encode_Step_One
                 encoded_bytes = base64.b64decode(encoded_byte)
                 encoded_string = encoded_bytes.decode('utf-8')
@@ -185,13 +199,17 @@ while Continue_Running:
         global My_Method
         global index
 
+        Colors = ["\x1b[34m", "\x1b[32m"]
+
         for Method in Methods:
             index += 1
             new_index = str(index) + ". "
-            print(f"\x1b[31m{new_index}{Method}")
+            color = Colors[index - 1]
+
+            print(f"{color}{new_index}{Method}")
 
         index = 0
-        My_Method = int(input("\n")) - 1
+        My_Method = int(input("\x1b[31m\n")) - 1
 
 
     def ChooseType():
