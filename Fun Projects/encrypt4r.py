@@ -37,8 +37,6 @@ User_String = None
 
 
 def AddToString(letter, choice, shift_number):
-    global Encoded_String
-
     if choice:
         new_index = Characters.index(letter) + shift_number
 
@@ -63,6 +61,42 @@ def AddToString(letter, choice, shift_number):
 
 
 
+def ReverseLetters(letter, shift_number, choice):
+    if choice:
+        new_index = Characters.index(letter) - shift_number
+
+        if new_index < 0:
+            new_index += len(Characters)
+
+        Decoded_Table.append(Characters[new_index])
+    else:
+        new_index = Characters.index(letter.lower()) - shift_number
+
+        if new_index < 0:
+            new_index += len(Characters)
+
+        new_letter = Characters[new_index].upper()
+
+        Decoded_Table.append(new_letter)
+
+
+def AddToStringNumbers(letter, shift):
+    new_index = Numbers.index(letter) + shift
+
+    if new_index > len(Numbers):
+        new_index = new_index - len(Numbers)
+        new_number = Numbers[new_index]
+
+        Encoded_Table.append(new_number)
+    if new_index < 0:
+        New_Set_Value = random.randint(1,5)
+
+        new_number = Numbers[New_Set_Value]
+        Encoded_Table.append(new_number)
+    else:
+        Encoded_Table.append(Numbers[new_index])
+    
+
 
 def EncryptCeaserCypher(String):
     Encoded_String = ""
@@ -75,9 +109,12 @@ def EncryptCeaserCypher(String):
 
         elif letter in Characters:
             AddToString(letter, True, Shift_Amount)
-
         elif letter.isupper():
             AddToString(letter, False, Shift_Amount)
+        elif letter in Numbers:
+            AddToStringNumbers(letter, Shift_Amount)
+        elif letter in Special_Characters:
+            pass
 
     for character in Encoded_Table:
         Encoded_String += character
@@ -93,29 +130,15 @@ def DecryptCeaserCypher(String):
 
     for letter in String:
         if letter == " ":
-            Decoded_String += letter
+            Decoded_Table.append(letter)
 
         elif letter in Characters:
-            new_index = Characters.index(letter) - Shift
-            
-            if new_index > len(Characters) - 1:
-                new_index = new_index - len(Characters)
-                new_letter = Characters[new_index]
-
-                Decoded_String += new_letter
-            else:
-                Decoded_String += Characters[new_index]
-
+            ReverseLetters(letter, Shift, True)
         elif letter.isupper():
-            new_index = Characters.index(letter.lower()) - Shift
+            ReverseLetters(letter, Shift, False)
 
-            if new_index > len(Characters) - 1:
-                new_index = new_index - len(Characters)
-                new_letter = Characters[new_index].upper()
-
-                Decoded_String += new_letter
-            else:
-                Decoded_String += Characters[new_index].upper()
+    for data in Decoded_Table:
+        Decoded_String += data
 
     if len(Decoded_String) > 0:
         print(f"\nHere's your decoded result: {Decoded_String}")
@@ -197,6 +220,12 @@ while Continue_Running:
     if Continue[0] == "y":
         for a in range(1, 100):
             print("\n")
+            Encoded_Table.clear()
+            Decoded_Table.clear()
+
+            My_Method = None
+            My_Choice = None
+            User_String = None
     else:
         Continue_Running = False
         break
