@@ -31,7 +31,7 @@ logo = """
             ###     ########### ###       ### ##########        ########  ########## ###     ###  ########        ###   ###    ### 
 """
 
-Directories = ["1. Games", "2. Game Launchers", "3. Coding", "4. Other Applications", "5. Virtual Machines"]
+Directories = ["1. Games", "2. Game Launchers", "3. Coding", "4. Other Applications", "5. Virtual Machines"] # Replace with ur directories and a coresponmding index
 Commands = ["exit - Exits the terminal", "back - Goes to the previous directory"]
 
 def RunSelectAndPrintInDir(category, put_ur_list_here):
@@ -94,7 +94,7 @@ while isRunning:
             print(command)
 
     if FirstDir == 1:
-        os.chdir(r"C:\Users\URUSER\Desktop\Everything\Games")
+        os.chdir(r"PUT_UR_PATH_TO_FIRST_DIRECTORY_HERE") # Do as the name says.
 
         Directory = os.getcwd()
         Games = []
@@ -105,7 +105,7 @@ while isRunning:
         OpenChosenIndexInDir(Chosen_Game, Games, Directory)
 
     elif FirstDir == 2:
-        os.chdir(r"C:\Users\morga\Desktop\Everything\GameLaunchers")
+        os.chdir(r"PUT_UR_PATH_TO_SECOND_DIRECTORY_HERE") # Do as the name says.
 
         Launchers = []
         Directory = os.getcwd()
@@ -116,7 +116,7 @@ while isRunning:
         OpenChosenIndexInDir(Chosen_Launcher, Launchers, Directory)
 
     elif FirstDir == 3:
-        os.chdir(r"C:\Users\URUSER\Desktop\Everything\Coding\IDE")
+        os.chdir(r"PUT_UR_PATH_TO_THIRD_DIRECTORY_HERE") # Do as the name says.
 
         IDEs = []
         Directory = os.getcwd()
@@ -127,7 +127,7 @@ while isRunning:
         OpenChosenIndexInDir(Chosen_IDE, IDEs, Directory)
 
     elif FirstDir == 4:
-        os.chdir(r"C:\Users\URUSER\Desktop\Everything\OtherApplications")
+        os.chdir(r"PUT_UR_PATH_TO_FOURTH_DIRECTORY_HERE") # Do as the name says.
 
         Other_Apps = []
         Direct = os.getcwd()
@@ -138,7 +138,7 @@ while isRunning:
         OpenChosenIndexInDir(Chosen_APP, Other_Apps, Direct)
 
     elif FirstDir == 5:
-        os.chdir(r"C:\Users\URUSER\Desktop\Everything\VirtualMachines\Actual_VMS")
+        os.chdir(r"PUT_UR_PATH_TO_FIFTH_DIRECTORY_HERE") # Do as the name says.
 
         VMS = []
         Direct = os.getcwd()
