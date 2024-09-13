@@ -31,7 +31,7 @@ logo = """
             ###     ########### ###       ### ##########        ########  ########## ###     ###  ########        ###   ###    ### 
 """
 
-Directories = ["1. Games", "2. Game Launchers", "3. Coding", "4. Other Applications", "5. Virtual Machines", "6. Common Websites ;)"]
+Directories = ["1. Games", "2. Game Launchers", "3. Coding", "4. Other Applications", "5. Virtual Machines", "6. Common Websites ;)"] # You can change these to the numbers and names of ur wanted directories
 Commands = ["exit - Exits the terminal", "back - Goes to the previous directory"]
 
 def RunSelectAndPrintInDir(category, put_ur_list_here):
@@ -94,7 +94,7 @@ while isRunning:
             print(command)
 
     if FirstDir == 1:
-        os.chdir(r"DIRECTORY1_PATH_HERE")
+        os.chdir(r"DIRECTORY1_PATH_HERE") # PUT UR DIRECTORY HERE
 
         Directory = os.getcwd()
         Games = []
@@ -105,7 +105,7 @@ while isRunning:
         OpenChosenIndexInDir(Chosen_Game, Games, Directory)
 
     elif FirstDir == 2:
-        os.chdir(r"DIRECTORY1_PATH_HERE")
+        os.chdir(r"DIRECTORY1_PATH_HERE") # PUT UR DIRECTORY HERE
 
         Launchers = []
         Directory = os.getcwd()
@@ -116,7 +116,7 @@ while isRunning:
         OpenChosenIndexInDir(Chosen_Launcher, Launchers, Directory)
 
     elif FirstDir == 3:
-        os.chdir(r"DIRECTORY1_PATH_HERE")
+        os.chdir(r"DIRECTORY1_PATH_HERE") # PUT UR DIRECTORY HERE
 
         IDEs = []
         Directory = os.getcwd()
@@ -127,7 +127,7 @@ while isRunning:
         OpenChosenIndexInDir(Chosen_IDE, IDEs, Directory)
 
     elif FirstDir == 4:
-        os.chdir(r"DIRECTORY1_PATH_HERE")
+        os.chdir(r"DIRECTORY1_PATH_HERE") # PUT UR DIRECTORY HERE
 
         Other_Apps = []
         Direct = os.getcwd()
@@ -138,7 +138,7 @@ while isRunning:
         OpenChosenIndexInDir(Chosen_APP, Other_Apps, Direct)
 
     elif FirstDir == 5:
-        os.chdir(r"DIRECTORY1_PATH_HERE")
+        os.chdir(r"DIRECTORY1_PATH_HERE") # PUT UR DIRECTORY HERE
 
         VMS = []
         Direct = os.getcwd()
@@ -150,7 +150,7 @@ while isRunning:
     elif FirstDir == 6:
         print("\nChoose a webpage!")
 
-        with open(r"PUT_THE_PATH_TO_UR_TXT_FILE_CONTAINING_UR_WEBSITES") as file:
+        with open(r"PUT_THE_PATH_TO_UR_TXT_FILE_CONTAINING_UR_WEBSITES") as file: # PUT A PATH TO A TXT FILE CONTAINING WEBSITES U WANT TO VISIT
             index = 1
             tbl = []
 
