@@ -94,7 +94,7 @@ while isRunning:
             print(command)
 
     if FirstDir == 1:
-        os.chdir(r"C:\Users\morga\Desktop\Everything\Games")
+        os.chdir(r"DIRECTORY1_PATH_HERE")
 
         Directory = os.getcwd()
         Games = []
@@ -105,7 +105,7 @@ while isRunning:
         OpenChosenIndexInDir(Chosen_Game, Games, Directory)
 
     elif FirstDir == 2:
-        os.chdir(r"C:\Users\morga\Desktop\Everything\GameLaunchers")
+        os.chdir(r"DIRECTORY1_PATH_HERE")
 
         Launchers = []
         Directory = os.getcwd()
@@ -116,7 +116,7 @@ while isRunning:
         OpenChosenIndexInDir(Chosen_Launcher, Launchers, Directory)
 
     elif FirstDir == 3:
-        os.chdir(r"C:\Users\morga\Desktop\Everything\Coding\IDE")
+        os.chdir(r"DIRECTORY1_PATH_HERE")
 
         IDEs = []
         Directory = os.getcwd()
@@ -127,7 +127,7 @@ while isRunning:
         OpenChosenIndexInDir(Chosen_IDE, IDEs, Directory)
 
     elif FirstDir == 4:
-        os.chdir(r"C:\Users\morga\Desktop\Everything\OtherApplications")
+        os.chdir(r"DIRECTORY1_PATH_HERE")
 
         Other_Apps = []
         Direct = os.getcwd()
@@ -138,7 +138,7 @@ while isRunning:
         OpenChosenIndexInDir(Chosen_APP, Other_Apps, Direct)
 
     elif FirstDir == 5:
-        os.chdir(r"C:\Users\morga\Desktop\Everything\VirtualMachines\Actual_VMS")
+        os.chdir(r"DIRECTORY1_PATH_HERE")
 
         VMS = []
         Direct = os.getcwd()
