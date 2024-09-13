@@ -1,4 +1,4 @@
 @echo off
 mode 140,50
-cd = C:\Users\morga\Desktop\Everything\Coding\TimeSlash4r
+cd = SET THIS TO WHEREVER U PLACED THE "TimeSlash4r.py"
 python TimeSlash4r.py
