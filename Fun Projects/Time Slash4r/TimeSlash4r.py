@@ -31,7 +31,7 @@ logo = """
             ###     ########### ###       ### ##########        ########  ########## ###     ###  ########        ###   ###    ### 
 """
 
-Directories = ["1. Games", "2. Game Launchers", "3. Coding", "4. Other Applications", "5. Virtual Machines"] # Replace with ur directories and a coresponmding index
+Directories = ["1. Games", "2. Game Launchers", "3. Coding", "4. Other Applications", "5. Virtual Machines", "6. Common Websites ;)"]
 Commands = ["exit - Exits the terminal", "back - Goes to the previous directory"]
 
 def RunSelectAndPrintInDir(category, put_ur_list_here):
@@ -94,7 +94,7 @@ while isRunning:
             print(command)
 
     if FirstDir == 1:
-        os.chdir(r"PUT_UR_PATH_TO_FIRST_DIRECTORY_HERE") # Do as the name says.
+        os.chdir(r"C:\Users\morga\Desktop\Everything\Games")
 
         Directory = os.getcwd()
         Games = []
@@ -105,7 +105,7 @@ while isRunning:
         OpenChosenIndexInDir(Chosen_Game, Games, Directory)
 
     elif FirstDir == 2:
-        os.chdir(r"PUT_UR_PATH_TO_SECOND_DIRECTORY_HERE") # Do as the name says.
+        os.chdir(r"C:\Users\morga\Desktop\Everything\GameLaunchers")
 
         Launchers = []
         Directory = os.getcwd()
@@ -116,7 +116,7 @@ while isRunning:
         OpenChosenIndexInDir(Chosen_Launcher, Launchers, Directory)
 
     elif FirstDir == 3:
-        os.chdir(r"PUT_UR_PATH_TO_THIRD_DIRECTORY_HERE") # Do as the name says.
+        os.chdir(r"C:\Users\morga\Desktop\Everything\Coding\IDE")
 
         IDEs = []
         Directory = os.getcwd()
@@ -127,7 +127,7 @@ while isRunning:
         OpenChosenIndexInDir(Chosen_IDE, IDEs, Directory)
 
     elif FirstDir == 4:
-        os.chdir(r"PUT_UR_PATH_TO_FOURTH_DIRECTORY_HERE") # Do as the name says.
+        os.chdir(r"C:\Users\morga\Desktop\Everything\OtherApplications")
 
         Other_Apps = []
         Direct = os.getcwd()
@@ -138,7 +138,7 @@ while isRunning:
         OpenChosenIndexInDir(Chosen_APP, Other_Apps, Direct)
 
     elif FirstDir == 5:
-        os.chdir(r"PUT_UR_PATH_TO_FIFTH_DIRECTORY_HERE") # Do as the name says.
+        os.chdir(r"C:\Users\morga\Desktop\Everything\VirtualMachines\Actual_VMS")
 
         VMS = []
         Direct = os.getcwd()
@@ -147,8 +147,32 @@ while isRunning:
         Chosen_VM = int(input("\n"))
         OpenChosenIndexInDir(Chosen_VM, VMS, Direct)
 
-    Re_Run = str(input("\nWould u like to go again? Type 'Y' or 'N'\n")).lower()
+    elif FirstDir == 6:
+        print("\nChoose a webpage!")
 
+        with open(r"PUT_THE_PATH_TO_UR_TXT_FILE_CONTAINING_UR_WEBSITES") as file:
+            index = 1
+            tbl = []
+
+            for website in file:
+                website = website.strip()
+                new_index = str(index) + ". "
+                print(new_index, website)
+
+                tbl.append(website)
+                index += 1
+
+            Chosen_Webpage = int(input("\n"))
+
+            for site in tbl:
+                if tbl.index(site) == Chosen_Webpage - 1:
+                    os.system(f"start {tbl[(Chosen_Webpage or site) - 1]}")
+                    print(f"Opening page: {tbl[(Chosen_Webpage or site) - 1]}")
+
+
+
+    Re_Run = str(input("\nWould u like to go again? Type 'Y' or 'N'\n")).lower()
+    
     if Re_Run[0] == "y":
         os.system("cls")
     else:
