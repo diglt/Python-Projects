@@ -1,5 +1,9 @@
 typing_speed = 0.000001
 
+# required modules
+# selenium - pip install selenium
+# bs4 - pip install bs4
+# pyautogui - pip install pyautogui
 
 from selenium import webdriver
 from bs4 import BeautifulSoup
